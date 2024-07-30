@@ -68,5 +68,23 @@ namespace StringCalc
 
 
         }
+
+
+
+        [Theory]
+        [InlineData("1\n2,3", 6)]
+        [InlineData("6\n7\n8", 21)]
+        [InlineData("1,1\n1", 3)]
+
+
+        public void ReturnsSumGivenStringWithThreeCommaOrNewLineSeparatedNumbers(string numbers, int desiredResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(desiredResult, result);
+
+
+        }
     }
 }

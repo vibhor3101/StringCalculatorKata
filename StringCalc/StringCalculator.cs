@@ -6,8 +6,8 @@
         {
             if (String.IsNullOrEmpty(numbers)) 
                 return 0;
-
-            var result = numbers.Split(',')
+            var delimiters = new [] { ',', '\n' };
+            var result = numbers.Split(delimiters)
                 .Select(s => int.Parse(s))
                 .Sum();
 
