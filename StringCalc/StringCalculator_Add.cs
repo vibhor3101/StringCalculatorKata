@@ -42,8 +42,6 @@ namespace StringCalc
         [InlineData("1,2", 3)]
         [InlineData("2,3", 5)]
 
-
-
         public void ReturnsSumGivenStringWithTwoCommaSeparatedNumbers(string numbers, int desiredResult)
         {
 
@@ -53,8 +51,6 @@ namespace StringCalc
 
 
         }
-
-
 
         [Theory]
         [InlineData("1,2,3", 6)]
@@ -66,11 +62,7 @@ namespace StringCalc
             var result = _calculator.Add(numbers);
 
             Assert.Equal(desiredResult, result);
-
-
         }
-
-
 
         [Theory]
         [InlineData("1\n2,3", 6)]
@@ -85,10 +77,7 @@ namespace StringCalc
 
             Assert.Equal(desiredResult, result);
 
-
         }
-
-
 
         [Theory]
         [InlineData("//;\n1;2;3", 6)]
@@ -100,10 +89,6 @@ namespace StringCalc
 
             Assert.Equal(desiredResult, result);
         }
-
-
-
-
 
         [Theory]
         [InlineData("-1,2","Negatives not allowed")]
@@ -168,13 +153,7 @@ namespace StringCalc
 
             Assert.Equal(desiredResult, result);
 
-
         }
-
-
-
-
-        
 
         [Theory]
         [InlineData("//[***]\n1***2***3", 6)]
@@ -196,11 +175,6 @@ namespace StringCalc
         }
 
 
-
-
-
-
-
         [Theory]
         [InlineData("//[**][%%]\n1**2%%3", 6)]
         public void ReturnsSumGivenStringWithMultipleCustomDelimitersOfLengthLongerThanOneChar(string numbers, int desiredResult)
@@ -208,8 +182,6 @@ namespace StringCalc
             var result = _calculator.Add(numbers);
             Assert.Equal(desiredResult, result);
         }
-
-
 
 
         [Fact]
