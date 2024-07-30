@@ -177,5 +177,19 @@ namespace StringCalc
 
 
 
+
+        
+
+        [Theory]
+        [InlineData("//[***]\n1***2***3", 6)]
+        
+        public void ReturnsSumGivenStringWithCustomDelimiters(string numbers, int desiredResult)
+        {
+            var result = _calculator.Add(numbers);
+            Assert.Equal(desiredResult, result);
+        }
+
+
+
     }
 }

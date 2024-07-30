@@ -19,23 +19,30 @@ namespace StringCalc
             if (String.IsNullOrEmpty(numbers)) 
                 return 0;
 
-            var delimiters = new List<char> { ',', '\n' };
+            var delimiters = new List<string> { ",", "\n" };
 
             string numberString = numbers;
+
+           
+
+
             if (numberString.StartsWith("//"))
             {
-                var splitInput = numberString.Split('\n');
-                var newDelimiter = splitInput.First().Trim('/');
-                numberString = String.Join('\n',
-                    splitInput.Skip(1));
+                var endOfDelimiterIndex = numberString.IndexOf('\n');
+                var delimiterSection = numberString.Substring(2, endOfDelimiterIndex - 2);
+                numberString = numberString.Substring(endOfDelimiterIndex + 1);
 
-                delimiters.Add(Convert.ToChar(newDelimiter));   
-
+                
+                delimiters.AddRange(delimiterSection.Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(d => !string.IsNullOrWhiteSpace(d))
+                    .Select(d => d.Trim()));
             }
-            var numberList = numberString.Split(delimiters.ToArray())
-                .Select(s => int.Parse(s));
 
-            var negatives = numberList.Where(n => n < 0);
+
+            var numberList = numberString.Split(delimiters.ToArray(), StringSplitOptions.None)
+                            .Select(s => int.Parse(s))
+                            .ToList();
+           var negatives = numberList.Where(n => n < 0);
 
             if (negatives.Any())
             {
