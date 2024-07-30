@@ -32,10 +32,14 @@ namespace StringCalc
                 var delimiterSection = numberString.Substring(2, endOfDelimiterIndex - 2);
                 numberString = numberString.Substring(endOfDelimiterIndex + 1);
 
-                
-                delimiters.AddRange(delimiterSection.Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(d => !string.IsNullOrWhiteSpace(d))
-                    .Select(d => d.Trim()));
+
+                var delimiterList = new List<string>();
+                var delimiterStrings = delimiterSection
+                    .Split(new[] { ']', '[' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                    .Select(s => s.Trim());
+
+                delimiters.AddRange(delimiterStrings);
             }
 
 
