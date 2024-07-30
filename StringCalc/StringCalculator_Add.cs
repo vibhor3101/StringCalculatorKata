@@ -6,12 +6,14 @@ namespace StringCalc
 
     public class StringCalculator_Add
     {
+        private StringCalculator _calculator = new StringCalculator();
+
+
         [Fact]
         public void Returns0GivenEmptyString()
         {
-            var calculator = new StringCalculator();
 
-            var result = calculator.Add("");
+            var result = _calculator.Add("");
 
             Assert.Equal(0, result);
 
@@ -26,9 +28,8 @@ namespace StringCalc
 
         public void ReturnsNumberGivenStringWithOneNumber(string numbers,int desiredResult)
         {
-            var calculator = new StringCalculator();
 
-            var result = calculator.Add(numbers);
+            var result = _calculator.Add(numbers);
 
             Assert.Equal(desiredResult, result);
 
@@ -44,17 +45,12 @@ namespace StringCalc
 
         public void ReturnsSumGivenStringWithTwoCommaSeparatedNumbers(string numbers, int desiredResult)
         {
-            var calculator = new StringCalculator();
 
-            var result = calculator.Add(numbers);
+            var result = _calculator.Add(numbers);
 
             Assert.Equal(desiredResult, result);
 
 
         }
     }
-
-
-
-
 }
