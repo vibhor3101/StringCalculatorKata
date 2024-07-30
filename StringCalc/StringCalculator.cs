@@ -42,6 +42,11 @@ namespace StringCalc
                 delimiters.AddRange(delimiterStrings);
             }
 
+            foreach (var delimiter in delimiters)
+            {
+                numberString = numberString.Replace(delimiter, ",");
+            }
+
 
             var numberList = numberString.Split(delimiters.ToArray(), StringSplitOptions.None)
                             .Select(s => int.Parse(s))
