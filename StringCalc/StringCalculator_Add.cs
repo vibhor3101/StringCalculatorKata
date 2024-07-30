@@ -24,7 +24,25 @@ namespace StringCalc
         [InlineData("2", 2)]
 
 
-        public void Returns1GivenStringWith1(string numbers,int desiredResult)
+        public void ReturnsNumberGivenStringWithOneNumber(string numbers,int desiredResult)
+        {
+            var calculator = new StringCalculator();
+
+            var result = calculator.Add(numbers);
+
+            Assert.Equal(desiredResult, result);
+
+
+        }
+
+
+        [Theory]
+        [InlineData("1,2", 3)]
+        [InlineData("2,3", 5)]
+
+
+
+        public void ReturnsSumGivenStringWithTwoCommaSeparatedNumbers(string numbers, int desiredResult)
         {
             var calculator = new StringCalculator();
 
