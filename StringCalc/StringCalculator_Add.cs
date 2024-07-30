@@ -17,5 +17,20 @@ namespace StringCalc
 
 
         }
+
+        public void Returns1GivenEmptyStringWith1()
+        {
+            var calculator = new StringCalculator();
+
+            var result = calculator.Add("1");
+
+            Assert.Equal(1, result);
+
+
+        }
     }
+
+
+
+
 }

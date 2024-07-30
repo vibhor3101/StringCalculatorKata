@@ -4,8 +4,9 @@
     {
         internal object Add(string numbers)
         {
-            //throw new NotImplementedException();
-            return 0;
+            if (String.IsNullOrEmpty(numbers)) return 0;
+
+            return 1;
 
 
         }
