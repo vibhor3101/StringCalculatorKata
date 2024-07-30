@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StringCalc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e818a232f06ee4d54a60066ed80a07abf27b719")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9c5aef34dd249701db55da9b9738263fe1418b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("StringCalc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StringCalc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
