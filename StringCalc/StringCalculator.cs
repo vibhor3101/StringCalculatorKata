@@ -10,6 +10,9 @@ namespace StringCalc
     {
         private int _callCount = 0;
 
+        public event Action<string, int> AddOccured;
+
+
 
         internal object Add(string numbers)
         {
@@ -62,6 +65,9 @@ namespace StringCalc
             var result = numberList
                 .Where(n => n <= 1000)
                 .Sum();
+
+            AddOccured?.Invoke(numbers, result);
+
 
             return result;
 

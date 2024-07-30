@@ -93,16 +93,12 @@ namespace StringCalc
         [Theory]
         [InlineData("//;\n1;2;3", 6)]
         
-
-
         public void ReturnsSumGivenStringWithCustomDelimiter(string numbers, int desiredResult)
         {
 
             var result = _calculator.Add(numbers);
 
             Assert.Equal(desiredResult, result);
-
-
         }
 
 
@@ -212,6 +208,32 @@ namespace StringCalc
             var result = _calculator.Add(numbers);
             Assert.Equal(desiredResult, result);
         }
+
+
+
+
+        [Fact]
+        public void AddOccuredEventIsTriggerOnAdd()
+        {
+
+            string recvInput = null;
+            int recvResult = 0;
+            _calculator.AddOccured += (input, result) =>
+            {
+                recvInput = input;
+                recvResult = result;
+            };
+
+
+            var result = _calculator.Add("5,5");
+
+
+            Assert.Equal("5,5", recvInput);
+            Assert.Equal(10, recvResult);
+        }
+
+
+
 
 
     }
