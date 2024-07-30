@@ -21,6 +21,8 @@ namespace StringCalc
 
         [Theory]
         [InlineData("1",1)]
+        [InlineData("2", 2)]
+
 
         public void Returns1GivenStringWith1(string numbers,int desiredResult)
         {
