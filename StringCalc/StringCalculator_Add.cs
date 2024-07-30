@@ -18,13 +18,17 @@ namespace StringCalc
 
         }
 
-        public void Returns1GivenEmptyStringWith1()
+
+        [Theory]
+        [InlineData("1",1)]
+
+        public void Returns1GivenStringWith1(string numbers,int desiredResult)
         {
             var calculator = new StringCalculator();
 
-            var result = calculator.Add("1");
+            var result = calculator.Add(numbers);
 
-            Assert.Equal(1, result);
+            Assert.Equal(desiredResult, result);
 
 
         }
