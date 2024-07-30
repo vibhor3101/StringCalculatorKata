@@ -8,8 +8,14 @@ namespace StringCalc
 {
     public class StringCalculator
     {
+        private int _callCount = 0;
+
+
         internal object Add(string numbers)
         {
+            _callCount++;
+
+
             if (String.IsNullOrEmpty(numbers)) 
                 return 0;
 
@@ -38,12 +44,14 @@ namespace StringCalc
 
             }
             var result = numberList.Sum();
-
-
             return result;
 
-
         }
+        public int GetCalledCount()
+        {
+            return _callCount;
+        }
+
 
     }
 }

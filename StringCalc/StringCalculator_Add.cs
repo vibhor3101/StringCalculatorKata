@@ -123,5 +123,39 @@ namespace StringCalc
 
 
         }
+
+        [Fact]
+        public void GetCalledCount_ReturnsZeroInitially()
+        {
+            
+            int count = _calculator.GetCalledCount();
+
+            
+            Assert.Equal(0, count);
+        }
+
+        [Fact]
+        public void GetCalledCount_ReturnsOneAfterOneAddCall()
+        {
+            
+            _calculator.Add("1");
+            int count =  _calculator.GetCalledCount();
+
+            
+            Assert.Equal(1, count);
+        }
+
+        [Fact]
+        public void GetCalledCount_ReturnsCorrectCountAfterMultipleAddCalls()
+        {
+            
+            _calculator.Add("1");
+            _calculator.Add("2");
+            _calculator.Add("3");
+            int count = _calculator.GetCalledCount();
+
+            
+            Assert.Equal(3, count);
+        }
     }
 }
