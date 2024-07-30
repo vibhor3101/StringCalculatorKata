@@ -52,5 +52,21 @@ namespace StringCalc
 
 
         }
+
+
+
+        [Theory]
+        [InlineData("1,2,3", 6)]
+        [InlineData("6,7,8", 21)]
+
+        public void ReturnsSumGivenStringWithThreeCommaSeparatedNumbers(string numbers, int desiredResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(desiredResult, result);
+
+
+        }
     }
 }
